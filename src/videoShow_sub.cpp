@@ -16,6 +16,7 @@ using namespace std;
 
 #define minBarDistance 400
 #define minBarS 100
+double calculated_curvature；
 Mat polyfit(vector<Point> &in_point, int n) //
 {
 	int size = in_point.size();
