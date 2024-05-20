@@ -241,6 +241,6 @@ int main(int argc, char *argv[])
 	cv::namedWindow("view");
 	cv::startWindowThread();
 	cv::destroyWindow("view");
-
+        calculated_curvature=theata / theata_count；
 	return 0;
 }
