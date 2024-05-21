@@ -32,13 +32,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 11,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -56,7 +56,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/home/dar/CarLaneDetecct/include"
+					"path" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/include"
 				},
 				{
 					"backtrace" : 3,

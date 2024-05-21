@@ -1,5 +1,5 @@
 #include <iostream>
-#include "videoShowSub.cpp"
+
 // 引用计算曲率的头文件，确保其中包含了对 calculated_curvature 的声明
 extern double calculated_curvature;
 

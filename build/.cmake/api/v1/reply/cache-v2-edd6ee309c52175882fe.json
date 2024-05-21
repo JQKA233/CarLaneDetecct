@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/dar/CarLaneDetecct/build"
+			"value" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -595,7 +595,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/dar/CarLaneDetecct"
+			"value" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1155,7 +1155,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/dar/CarLaneDetecct/build"
+			"value" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/build"
 		},
 		{
 			"name" : "car_road_line_detect_SOURCE_DIR",
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/dar/CarLaneDetecct"
+			"value" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct"
 		}
 	],
 	"kind" : "cache",

@@ -16,7 +16,9 @@ using namespace std;
 
 #define minBarDistance 400
 #define minBarS 100
-double calculated_curvature；
+double calculated_curvature;
+double theata = 0;							// 用于累加局部曲率
+int theata_count = 0;						// 用于累加曲率数.后面求平均
 Mat polyfit(vector<Point> &in_point, int n) //
 {
 	int size = in_point.size();
@@ -97,8 +99,8 @@ void imageCallback(Mat src)
 	// static Point *pointArr=new Point[binery.rows/50];//建立点的数组
 	// static Point *pointArr1=new Point[binery.rows/50];
 
-	double theata = 0;	  // 用于累加局部曲率
-	int theata_count = 0; // 用于累加曲率数.后面求平均
+	// double theata = 0;	  // 用于累加局部曲率
+	// int theata_count = 0; // 用于累加曲率数.后面求平均
 
 	std::vector<Point> lastAllowedPoints;
 	bool lastIfOneOnRight = false;
@@ -211,17 +213,50 @@ void imageCallback(Mat src)
 	threshold(binary2, binary2, 50, 255, THRESH_BINARY); // 二值化
 	mask.copyTo(src, binary2);							 // 剔除遮罩
 
-	imshow("dst", dst2);
+	// imshow("dst", dst2);
 	imshow("src", src);
 	// imshow("lab", lab);
-	imshow("binery", binery);
+	// imshow("binery", binery);
 	// imshow("gray", gray);
-	imshow("split_vec0", split_vec[0]);
-	imshow("split_vec1", split_vec[1]);
-	imshow("split_vec2", split_vec[2]);
+	// imshow("split_vec0", split_vec[0]);
+	// imshow("split_vec1", split_vec[1]);
+	// imshow("split_vec2", split_vec[2]);
 	cv::waitKey(1);
 }
+// 引用计算曲率的头文件，确保其中包含了对 calculated_curvature 的声明
+extern double calculated_curvature;
 
+// 定义车轮间距
+const double L = 0.5; // 假设车轮间距为0.5米
+// 函数，用于根据曲率计算左右轮速度
+void calculateMotorSpeeds(double curvature, double &leftSpeed, double &rightSpeed, double baseSpeed)
+{
+	double centralcurvature;
+	// 曲率大于零，右转
+	if (curvature > 0.000001)
+	{
+		double centralcurvature;
+		centralcurvature = 1 / ((1 / curvature) + 1.5); // 转化为中心曲率
+		double radius = 1.0 / centralcurvature;
+		leftSpeed = baseSpeed * (1 + L / (2 * radius));
+		rightSpeed = baseSpeed * (1 - L / (2 * radius));
+	}
+	// 曲率小于零，左转
+	if (curvature < -0.000001)
+	{
+		double centralcurvature;
+		centralcurvature = 1 / ((1 / ((-1) * curvature)) + 1.5);
+		double radius = 1.0 / centralcurvature;
+		leftSpeed = baseSpeed * (1 - L / (2 * radius));
+		rightSpeed = baseSpeed * (1 + L / (2 * radius));
+	}
+	// 曲率为0，直行
+	else
+	{
+		leftSpeed = baseSpeed;
+		rightSpeed = baseSpeed;
+	}
+}
 int main(int argc, char *argv[])
 {
 	VideoCapture video;
@@ -232,15 +267,30 @@ int main(int argc, char *argv[])
 		puts("Read Video failed!");
 		return -1;
 	}
+	// 从全局变量中获取曲率
+	double curvature;
 	while (1)
 	{
 		video >> frame;
 		imageCallback(frame);
+		calculated_curvature = theata / theata_count;
+		curvature = calculated_curvature;
+		// 基础速度设定，例如0.5米/秒
+		double baseSpeed = 0.5;
+		double leftSpeed, rightSpeed;
+
+		// 根据曲率计算左右轮速度
+		calculateMotorSpeeds(curvature, leftSpeed, rightSpeed, baseSpeed);
+
+		// 输出计算结果
+		std::cout << "Curvature: " << curvature << std::endl;
+		std::cout << "Left Wheel Speed: " << leftSpeed << std::endl;
+		std::cout << "Right Wheel Speed: " << rightSpeed << std::endl;
 	}
 
 	cv::namedWindow("view");
 	cv::startWindowThread();
 	cv::destroyWindow("view");
-        calculated_curvature=theata / theata_count；
+
 	return 0;
 }

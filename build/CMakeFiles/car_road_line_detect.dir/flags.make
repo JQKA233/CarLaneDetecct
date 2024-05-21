@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/dar/CarLaneDetecct/include -isystem /usr/include/opencv4 
+CXX_INCLUDES = -I/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/include -isystem /usr/include/opencv4 
 

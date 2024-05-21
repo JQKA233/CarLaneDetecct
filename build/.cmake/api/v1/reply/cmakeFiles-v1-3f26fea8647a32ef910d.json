@@ -161,8 +161,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/dar/CarLaneDetecct/build",
-		"source" : "/home/dar/CarLaneDetecct"
+		"build" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/build",
+		"source" : "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct"
 	},
 	"version" : 
 	{

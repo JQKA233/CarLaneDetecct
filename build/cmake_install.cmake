@@ -1,4 +1,4 @@
-# Install script for directory: /home/dar/CarLaneDetecct
+# Install script for directory: /home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dar/CarLaneDetecct/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
