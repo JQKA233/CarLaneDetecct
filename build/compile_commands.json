@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/build",
-  "command": "/usr/bin/g++   -I/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/include -isystem /usr/include/opencv4  -g   -o CMakeFiles/car_road_line_detect.dir/src/videoShow_sub.cpp.o -c /home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/src/videoShow_sub.cpp",
-  "file": "/home/dar/carLineDetect/car_road_line_detect/CarLaneDetecct/src/videoShow_sub.cpp"
-}
-]
