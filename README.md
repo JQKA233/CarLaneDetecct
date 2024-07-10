@@ -84,7 +84,7 @@ sudo apt-get install libopencv-core-dev libopencv-highgui-dev libopencv-imgproc-
 1. 确保摄像头设备 `/dev/video0` 可用。
 2. 运行编译后的程序
    ```
-   ./[编译后的程序名]
+   ./car_road_line_detect
    ```
 3. 观察程序窗口，查看图像处理结果和速度计算。
 
