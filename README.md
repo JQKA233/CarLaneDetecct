@@ -14,11 +14,11 @@
 
 1. 克隆项目到本地
    ```
-   git clone [项目仓库地址]
+   git clone https://github.com/JQKA233/CarLaneDetecct.git
    ```
 2. 进入项目目录
    ```
-   cd [项目目录]
+   cd CarLaneDetecct
    ```
 3. 创建构建目录并进入
    ```
